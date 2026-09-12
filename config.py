@@ -22,9 +22,9 @@ KO_FI_URL = os.environ.get("KO_FI_URL", "")           # donation button (free)
 SITE_DISCLOSURE = os.environ.get("SITE_DISCLOSURE", "")  # affiliate disclosure
 
 # ---- Collection ------------------------------------------------------------
-MAX_STORIES = int(os.environ.get("MAX_STORIES", "12"))   # fresh articles per run
-EXCERPT_LIMIT = int(os.environ.get("EXCERPT_LIMIT", "300"))  # chars sent to AI
-SUMMARY_WORDS = int(os.environ.get("SUMMARY_WORDS", "80"))   # target summary length
+MAX_STORIES = int(os.environ.get("MAX_STORIES") or "12")   # fresh articles per run
+EXCERPT_LIMIT = int(os.environ.get("EXCERPT_LIMIT") or "300")  # chars sent to AI
+SUMMARY_WORDS = int(os.environ.get("SUMMARY_WORDS") or "80")   # target summary length
 MAX_PER_SOURCE = 3                                        # max picks per source
 
 # ---- Writing brain (free Gemini API tier) ---------------------------------
