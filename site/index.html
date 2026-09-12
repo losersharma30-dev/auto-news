@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auto News Daily</title>
+<meta name="description" content="Fresh headlines, summarized by AI">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="alternate" type="application/rss+xml" title="Auto News Daily" href="https://deepa.github.io/auto-news/feed.xml">
+
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="logo">&#128240;</span>
+      <span>Auto News Daily<small>Fresh headlines, summarized by AI</small></span></a>
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+      <nav class="main"><a href="index.html" class="on">Home</a><a href="?cat=world">World</a><a href="?cat=technology">Tech</a><a href="?cat=science">Science</a><a href="?cat=business">Business</a><a href="about.html">About</a></nav>
+      
+    </div>
+  </div>
+</header>
+<div class="wrap" style="padding-top:24px;padding-bottom:24px">
+
+<div class="hero">
+  <h1>Auto News Daily</h1>
+  <p>Fresh headlines, summarized by AI — auto-collected from 20+ free sources, rewritten every hour. Read the full story at the original outlet.</p>
+  <div class="updated">Last updated: September 12, 2026 18:30 UTC &middot; 3 briefs published</div>
+</div>
+<div class="wrap">
+  <div class="filters" id="filters"><button class="on" data-cat="All">All</button><button class="" data-cat="world">World</button><button class="" data-cat="technology">Technology</button><button class="" data-cat="business">Business</button><button class="" data-cat="science">Science</button><button class="" data-cat="sports">Sports</button><button class="" data-cat="ai">Ai</button></div>
+  <div class="grid" id="grid"><article class="card">
+  
+  <div class="body">
+    <div class="meta"><span class="pill">&#127757; world</span>
+      <span>BBC World</span><span class="dot">&middot;</span><span>2026-09-12 12:12</span></div>
+    <h2 class="title"><a href="articles/2026-09-12-anthropic-boss-dario-amodei-calls-for-ai-development-to-slow.html">Anthropic boss Dario Amodei calls for AI development to slow down</a></h2>
+    <p class="snippet">The call comes amid growing concerns that AI models may become able to inflict serious damage worldwide.</p>
+    <a class="more" href="articles/2026-09-12-anthropic-boss-dario-amodei-calls-for-ai-development-to-slow.html">Read brief &rarr;</a>
+  </div>
+</article>
+<article class="card">
+  
+  <div class="body">
+    <div class="meta"><span class="pill">&#127757; world</span>
+      <span>Al Jazeera</span><span class="dot">&middot;</span><span>2026-09-12 12:01</span></div>
+    <h2 class="title"><a href="articles/2026-09-12-selling-the-war-purges-polygraphs-and-propaganda.html">Selling the war: Purges, polygraphs and propaganda</a></h2>
+    <p class="snippet">The Iran war has become ever more challenging for the Trump administration to sell.</p>
+    <a class="more" href="articles/2026-09-12-selling-the-war-purges-polygraphs-and-propaganda.html">Read brief &rarr;</a>
+  </div>
+</article>
+<article class="card">
+  
+  <div class="body">
+    <div class="meta"><span class="pill">&#127757; world</span>
+      <span>Al Jazeera</span><span class="dot">&middot;</span><span>2026-09-12 11:48</span></div>
+    <h2 class="title"><a href="articles/2026-09-12-india-vs-sri-lanka-women-s-t20-asia-cup-2026-final-schedule-.html">India vs Sri Lanka: Women’s T20 Asia Cup 2026 final – schedule, teams, form</a></h2>
+    <p class="snippet">Aiming for a record-extending eighth title, India take on defending champions Sri Lanka in Sunday&#x27;s final in Dubai.</p>
+    <a class="more" href="articles/2026-09-12-india-vs-sri-lanka-women-s-t20-asia-cup-2026-final-schedule-.html">Read brief &rarr;</a>
+  </div>
+</article></div>
+</div>
+<script>
+const grid=document.getElementById('grid'),filters=document.getElementById('filters');
+if(filters){filters.addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b) return;
+  [...filters.children].forEach(x=>x.classList.toggle('on',x===b));
+  const cat=b.dataset.cat;
+  [...grid.children].forEach(c=>{
+    const pill=c.querySelector('.pill');
+    c.style.display=(cat==='All'||(pill&&pill.textContent.toLowerCase().includes(cat)))?'':'none';
+  });
+});}
+</script>
+
+</div>
+<footer class="footer">
+  <div class="wrap">
+    <div class="row">
+      <span>Headlines & summaries auto-collected from public RSS feeds & free APIs. Original reporting belongs to the linked sources.</span>
+      <span><a href="feed.xml">RSS Feed</a> &middot; <a href="about.html">About</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="privacy.html">Privacy</a></span>
+    </div>
+    
+    <div class="row"><span>&copy; 2026 Auto News Daily</span>
+    <span>Built with &#10084; on a 100% free stack</span></div>
+  </div>
+</footer>
+
+</body>
+</html>

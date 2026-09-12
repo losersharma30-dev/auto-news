@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auto News Daily</title>
+<meta name="description" content="Fresh headlines, summarized by AI">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="alternate" type="application/rss+xml" title="Auto News Daily" href="https://deepa.github.io/auto-news/feed.xml">
+
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="logo">&#128240;</span>
+      <span>Auto News Daily<small>Fresh headlines, summarized by AI</small></span></a>
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+      <nav class="main"><a href="index.html">Home</a><a href="?cat=world">World</a><a href="?cat=technology">Tech</a><a href="?cat=science">Science</a><a href="?cat=business">Business</a><a href="about.html" class="on">About</a></nav>
+      
+    </div>
+  </div>
+</header>
+<div class="wrap" style="padding-top:24px;padding-bottom:24px">
+<main class="page content">
+<h1>About Auto News Daily</h1>
+<p>Auto News Daily is an experiment in fully-automated news aggregation. Every hour, a free GitHub Actions
+worker fetches headlines from public RSS feeds and free news APIs (BBC, The Guardian, Al Jazeera, DW, NPR,
+The Verge, TechCrunch, Hacker News, Reddit and more), filters and dedupes them, then asks a free-tier Gemini
+model to rewrite each one as a short neutral brief.</p>
+<p>We never republish articles. Every brief is a paraphrase that links back to the original reporting —
+the same aggregation model used by Google News. Original work belongs to the linked sources.</p>
+<h2>The stack (100% free)</h2>
+<ul>
+<li>Data: public RSS feeds + Guardian Open Platform + Hacker News + Reddit JSON</li>
+<li>Writing: Google Gemini free-tier API</li>
+<li>Scheduling: GitHub Actions (hourly cron)</li>
+<li>Hosting: GitHub Pages</li>
+<li>Images: Wikimedia Commons / Pexels free API</li>
+</ul>
+<p>3 briefs published so far.</p>
+</main>
+</div>
+<footer class="footer">
+  <div class="wrap">
+    <div class="row">
+      <span>Headlines & summaries auto-collected from public RSS feeds & free APIs. Original reporting belongs to the linked sources.</span>
+      <span><a href="feed.xml">RSS Feed</a> &middot; <a href="about.html">About</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="privacy.html">Privacy</a></span>
+    </div>
+    
+    <div class="row"><span>&copy; 2026 Auto News Daily</span>
+    <span>Built with &#10084; on a 100% free stack</span></div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+name: Auto News
+
+# Runs every hour, automatically. You can also trigger it manually
+# from the Actions tab ("Run workflow" button).
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  collect-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Collect & write news
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GUARDIAN_API_KEY: ${{ secrets.GUARDIAN_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          GITHUB_USERNAME: ${{ github.repository_owner }}
+          MAX_STORIES: ${{ vars.MAX_STORIES }}
+          SITE_NAME: ${{ vars.SITE_NAME }}
+        run: python collect.py
+
+      - name: Build the website
+        env:
+          GITHUB_USERNAME: ${{ github.repository_owner }}
+          SITE_NAME: ${{ vars.SITE_NAME }}
+        run: python generate_site.py
+
+      - name: Commit articles back (so dedup history persists)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main
+          git add news data site/feed.xml site/sitemap.xml site/articles site/index.html site/about.html site/privacy.html site/contact.html
+          if git diff --cached --quiet; then
+            echo "No new articles - skipping commit"
+          else
+            git commit -m "Auto news update $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

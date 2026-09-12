@@ -1,0 +1,96 @@
+/* ============================================================
+   Auto-News — clean, minimal, mobile-first news site
+   ============================================================ */
+:root{
+  --bg:#f4f6f8; --card:#ffffff; --ink:#14181d; --muted:#5b6472;
+  --accent:#0f62fe; --accent-dark:#0b3fa0; --border:#e2e6ea;
+  --chip:#eef1f5; --shadow:0 1px 3px rgba(16,24,40,.08),0 4px 14px rgba(16,24,40,.06);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+     background:var(--bg);color:var(--ink);line-height:1.55}
+img{max-width:100%;display:block}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ---------- Header ---------- */
+.topbar{background:#0b1220;color:#fff;position:sticky;top:0;z-index:20;
+        box-shadow:0 1px 0 rgba(255,255,255,.06)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.2rem;color:#fff}
+.brand .logo{font-size:1.5rem}
+.brand small{display:block;font-weight:400;font-size:.72rem;color:#9fb0c9;letter-spacing:.02em}
+nav.main{display:flex;gap:4px;flex-wrap:wrap}
+nav.main a{color:#cdd7e6;padding:8px 12px;border-radius:8px;font-size:.92rem}
+nav.main a:hover{background:rgba(255,255,255,.08);text-decoration:none;color:#fff}
+
+/* ---------- Layout ---------- */
+.page{max-width:760px;margin:0 auto;padding:0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:20px}
+.hero{background:linear-gradient(135deg,#0b1220,#12294f);color:#fff;padding:34px 20px;margin-bottom:28px}
+.hero h1{margin:0 0 6px;font-size:1.9rem}
+.hero p{margin:0;color:#aebbd2;max-width:640px}
+.updated{font-size:.8rem;color:#8fa2bd;margin-top:10px}
+
+/* ---------- Cards ---------- */
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;
+      display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .15s ease}
+.card:hover{transform:translateY(-2px)}
+.card .thumb{height:150px;background:linear-gradient(135deg,#16324f,#0b1220);background-size:cover;background-position:center}
+.card .body{padding:16px 18px;flex:1;display:flex;flex-direction:column;gap:8px}
+.card .title{font-size:1.02rem;font-weight:700;line-height:1.35}
+.card .title a{color:var(--ink)}
+.card .title a:hover{color:var(--accent);text-decoration:none}
+.card .meta{font-size:.78rem;color:var(--muted);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.card .meta .dot{opacity:.5}
+.pill{display:inline-block;background:var(--chip);color:#344054;border-radius:999px;
+      font-size:.72rem;font-weight:600;padding:2px 10px;text-transform:capitalize}
+.card .snippet{font-size:.88rem;color:#3a4450;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card .more{margin-top:auto;font-size:.86rem;font-weight:600}
+
+/* ---------- Category filter ---------- */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px}
+.filters button{border:1px solid var(--border);background:var(--card);border-radius:999px;
+                padding:6px 14px;font-size:.82rem;cursor:pointer;color:var(--muted);font-family:inherit}
+.filters button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.filters button:hover{opacity:.9}
+
+/* ---------- Article page ---------- */
+.article h1{font-size:1.85rem;line-height:1.25;margin:0 0 12px}
+.byline{font-size:.84rem;color:var(--muted);margin-bottom:22px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.article figure{margin:0 0 22px}
+.article figure img{border-radius:12px;width:100%}
+.article .lead{font-size:1.04rem}
+.article p{font-size:.98rem;color:#232a33}
+.readmore{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:11px 22px;
+          border-radius:10px;margin:18px 0 6px}
+.readmore:hover{background:var(--accent-dark);text-decoration:none;color:#fff}
+.note{font-size:.78rem;color:var(--muted);border-top:1px solid var(--border);margin-top:22px;padding-top:14px}
+.back{display:inline-block;margin-bottom:18px;font-size:.88rem}
+
+/* ---------- Generic content pages ---------- */
+.content h1{font-size:1.7rem}
+.content h2{margin-top:1.6em}
+.content li{margin-bottom:.4em}
+
+/* ---------- Footer ---------- */
+.footer{background:#0b1220;color:#9fb0c9;margin-top:48px;padding:28px 20px;font-size:.86rem}
+.footer .wrap{display:flex;flex-direction:column;gap:14px}
+.footer .row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+.footer a{color:#cdd7e6}
+.footer .disclosure{font-size:.74rem;color:#7b8ca6}
+
+/* ---------- Donate / buttons ---------- */
+.btn-donate{background:#fff;color:#0b1220;font-weight:700;padding:9px 18px;border-radius:999px;font-size:.84rem}
+.btn-donate:hover{text-decoration:none;background:#eef1f5}
+
+/* ---------- Ad placeholder ---------- */
+.ad{min-height:90px}
+.empty{padding:60px 20px;text-align:center;color:var(--muted)}
+
+@media (max-width:640px){
+  .hero h1{font-size:1.5rem}
+  .article h1{font-size:1.4rem}
+}
