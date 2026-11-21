@@ -1,0 +1,10 @@
+---
+title: "Russia-bound ship attacked in Gulf of Finland"
+date: "2026-11-21T19:20:22Z"
+source: "BBC World"
+source_url: "https://www.bbc.co.uk/news/articles/cj752ddve27ko?at_medium=RSS&at_campaign=rss"
+category: "world"
+image: ""
+---
+
+Finnish defence forces say that Ukraine was likely behind the drone attack on the vessel.
